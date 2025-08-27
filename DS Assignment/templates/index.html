@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abalone Age Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="background"></div> <!-- Add a div for the background -->
+    <div class="container">
+        <h1>Ablone Age Prediction</h1>
+        <form id="predictionForm" class="form">
+            <div class="form-group">
+                <label for="sex">Sex:</label>
+                <input type="radio" id="sex_male" name="sex" value="0" required> Male
+                <input type="radio" id="sex_female" name="sex" value="1" required> Female
+                <input type="radio" id="sex_infant" name="sex" value="2" required> Infant
+            </div>
+            <div class="form-group">
+                <label for="feature2">Length (in mm)</label><br>
+                <input type="text" id="feature2" name="feature2" required>
+            </div>
+            <div class="form-group">
+                <label for="feature3">Diameter (in mm)</label><br>
+                <input type="text" id="feature3" name="feature3" required>
+            </div>
+            <div class="form-group">
+                <label for="feature4">Height (in mm)</label><br>
+                <input type="text" id="feature4" name="feature4" required>
+            </div>
+            <div class="form-group">
+                <label for="feature5">Whole_weight (in g)</label><br>
+                <input type="text" id="feature5" name="feature5" required>
+            </div>
+            <div class="form-group">
+                <label for="feature6">Shucked_weight (in g)</label><br>
+                <input type="text" id="feature6" name="feature6" required>
+            </div>
+            <div class="form-group">
+                <label for="feature7">Viscera_weight (in g)</label><br>
+                <input type="text" id="feature7" name="feature7" required>
+            </div>
+            <div class="form-group">
+                <label for="feature8">Shell_weight (in g)</label><br>
+                <input type="text" id="feature8" name="feature8" required>
+            </div>
+            <div class="btn-container">
+                <div class="btn-wrapper">
+                    <button type="reset" class="btn">Clear</button>
+                </div>
+                <div class="btn-wrapper">
+                    <button type="submit" class="btn">Predict</button>
+                </div>
+            </div>
+        </form>
+        <div id="predictionResult" class="prediction-result"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+        // JavaScript for background animation
+        const background = document.querySelector('.background');
+    
+        window.addEventListener('scroll', () => {
+          const scroll = window.scrollY;
+          background.style.backgroundPositionY = -scroll / 2 + 'px';
+        });
+    </script>
+</body>
+</html>
+
